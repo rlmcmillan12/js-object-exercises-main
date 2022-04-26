@@ -35,7 +35,7 @@ const user2 = {
  * @returns {string}
  */
 function level2exercise1(user) {
-
+  return user.security.password
 }
 
 /**
@@ -45,7 +45,7 @@ function level2exercise1(user) {
  * @returns {string}
  */
 function level2exercise2(user) {
-
+  return `${user.name.first} ${user.name.last}`
 }
 
 /**
@@ -55,7 +55,7 @@ function level2exercise2(user) {
  * @returns {string}
  */
 function level2exercise3(user) {
-
+  return `${user.name.first[0].toUpperCase()}${user.name.last[0].toUpperCase()}`
 }
 
 /**
@@ -65,7 +65,12 @@ function level2exercise3(user) {
  * @returns {boolean}
  */
 function level2exercise4(user) {
-
+  if (user.security.password.length < 7){
+    return false
+  }
+  else {
+    return true
+  }
 }
 
 /**
@@ -75,5 +80,13 @@ function level2exercise4(user) {
  * @returns {boolean}
  */
 function level2exercise5(user) {
-
+  const oneDay = (86400000);
+  const todaysDate = new Date();
+  const daysDifferent = ((user.security.lastLogin - todaysDate) / oneDay);
+  if (daysDifferent <= 30){
+    return true;
+  }
+  else {
+    return false;
+  }
 }
