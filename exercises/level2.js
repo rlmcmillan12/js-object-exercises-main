@@ -80,9 +80,15 @@ function level2exercise4(user) {
  * @returns {boolean}
  */
 function level2exercise5(user) {
-  const oneDay = (86400000);
-  const todaysDate = new Date();
-  const daysDifferent = ((user.security.lastLogin - todaysDate) / oneDay);
+  function removeTime(date = new Date()){
+    return new Date(
+      date.getFullYear(),
+      date.getMonth(),
+      date.getDate()
+    );
+  }
+  const login = Number(user.security.lastLogin)
+  const daysDifferent = (removeTime(new Date) - login)
   if (daysDifferent <= 30){
     return true;
   }
